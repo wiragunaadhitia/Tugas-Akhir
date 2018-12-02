@@ -172,9 +172,9 @@ trainInformasi = [train[x] + [targetInformasi[x]] for x in range(len(train))]
 
 # In[57]:
 
-modelA = RandomForestClassifier(rf_trees=50, rf_samples=1000)
-modelL = RandomForestClassifier(rf_trees=50, rf_samples=1000)
-modelI = RandomForestClassifier(rf_trees=50, rf_samples=1000)
+modelA = RandomForestClassifier(rf_trees=20, rf_samples=1000)
+modelL = RandomForestClassifier(rf_trees=20, rf_samples=1000)
+modelI = RandomForestClassifier(rf_trees=20, rf_samples=1000)
 modelA.fit(trainAnjuran)
 modelL.fit(trainLarangan)
 modelI.fit(trainInformasi)
