@@ -39,5 +39,5 @@ def getHammingLoss(target,prediction):
             if(prediction[x][y]!=target[x][y]):
                 error+=1
     print (error)
-    hammingloss=error*(1/3)*(1/len(target))
+    hammingloss=error*(1/3)*(1/(len(target)))
     return hammingloss
