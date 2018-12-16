@@ -22,6 +22,7 @@ class RandomForestClassifier(object):
         self.rf_trees = rf_trees
         self.rf_samples = rf_samples
         self.max_depth = max_depth
+        self.count=0
     
     """
     fit : Trains self.rf_trees number of decision trees.
@@ -40,7 +41,8 @@ class RandomForestClassifier(object):
     
     def train_tree(self, data):
         tree = DecisionTreeClassifier(max_depth = self.max_depth)
-        print(1)
+        self.count+=1
+        print(self.count)
         tree.fit(data)
         return tree
     """

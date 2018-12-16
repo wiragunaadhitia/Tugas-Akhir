@@ -85,18 +85,18 @@ extraction=TF.copy()
 # In[13]:
 # ## Split Data
 train, validation, labeltrain, labelval = train_test_split(extraction, label, test_size=0.30, random_state=42)
-anjuran = [label[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==0] 
-larangan =[label[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==1]
-informasi = [label[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==2] 
+anjuran = [labeltrain[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==0] 
+larangan =[labeltrain[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==1]
+informasi = [labeltrain[x][y] for x in range(len(labeltrain)) for y in range(0,3) if y==2] 
 
 trainAnjuran = [train[x] +[anjuran[x]] for x in range(len(train))]
 trainLarangan = [train[x] +[larangan[x]] for x in range(len(train))]
 trainInformasi = [train[x] + [informasi[x]] for x in range(len(train))]
 # In[57]:
 # ## Build Model & Prediction
-modelA = RandomForestClassifier(rf_trees=30, rf_samples=1000)
-modelL = RandomForestClassifier(rf_trees=30, rf_samples=1000)
-modelI = RandomForestClassifier(rf_trees=30, rf_samples=1000)
+modelA = RandomForestClassifier(rf_trees=80, rf_samples=1000)
+modelL = RandomForestClassifier(rf_trees=80, rf_samples=1000)
+modelI = RandomForestClassifier(rf_trees=80, rf_samples=1000)
 modelA.fit(trainAnjuran)
 modelL.fit(trainLarangan)
 modelI.fit(trainInformasi)
