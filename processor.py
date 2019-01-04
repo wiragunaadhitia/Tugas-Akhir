@@ -34,10 +34,18 @@ def getPerformance(target,prediction):
     return hamming_loss(targetfix,predictionfix)
 def getHammingLoss(target,prediction):
     error=0
+    index=[]
     for x in range (0,len(target)):
         for y in range(0,len(target[0])):
             if(prediction[x][y]!=target[x][y]):
                 error+=1
+                index.append(x)
     print (error)
-    hammingloss=error*(1/3)*(1/(len(target)))
-    return hammingloss
+    hammingloss=error*(1/(len(target[0])))*(1/(len(target)))
+    return hammingloss,list(set(index))
+def split(dtrain,dtest):
+    train = [dtrain[x][0:-2] for x in range(len(dtrain))]
+    test = [dtest[x][0:-2] for x in range(len(dtest))]
+    labeltrain= [dtrain[x][-1]for x in range(len(dtrain))]
+    labeltest= [dtest[x][-2]for x in range(len(dtest))]
+    return train,test,labeltrain,labeltest
